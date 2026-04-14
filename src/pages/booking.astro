@@ -1,0 +1,38 @@
+---
+// src/pages/booking.astro
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import BookingComponent from "../components/Booking.astro";
+import FAQ from "../components/FAQ.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Book an Appointment | Gentle Dental">
+    <Navbar />
+
+    <main class="pt-32">
+        <section class="max-w-7xl mx-auto px-6 mb-4 text-center">
+            <div
+                class="inline-block bg-brand-light text-brand-primary font-medium px-5 py-2 rounded-full mb-6"
+            >
+                Secure Your Spot
+            </div>
+            <h1
+                class="text-5xl md:text-7xl font-light text-brand-dark mb-6 tracking-tight leading-tight"
+            >
+                Your journey to a<br />
+                <span class="text-brand-primary font-medium"
+                    >better smile starts here.</span
+                >
+            </h1>
+        </section>
+
+        <BookingComponent />
+
+        <div class="mt-8">
+            <FAQ />
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

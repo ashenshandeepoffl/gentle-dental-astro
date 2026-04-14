@@ -1,0 +1,167 @@
+---
+// src/components/Team.astro
+---
+
+<section class="py-24 bg-white" id="team">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16 md:mb-20">
+            <h2
+                class="text-4xl md:text-5xl lg:text-6xl font-light text-brand-dark mb-4 tracking-tight"
+            >
+                Meet the <span class="text-brand-primary font-medium"
+                    >Gentle Dental</span
+                > team
+            </h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Dedicated professionals committed to making your dental
+                experience comfortable, anxiety-free, and personalized.
+            </p>
+        </div>
+
+        <div
+            class="bg-brand-light/40 rounded-[32px] md:rounded-[40px] p-8 md:p-12 lg:p-16 shadow-sm border border-brand-light flex flex-col lg:flex-row gap-10 lg:gap-16 items-center mb-8 hover:shadow-md transition-shadow duration-300"
+        >
+            <div
+                class="w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0 relative group"
+            >
+                <div
+                    class="absolute inset-0 bg-brand-primary/10 rounded-full transform translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4"
+                >
+                </div>
+                <img
+                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop"
+                    alt="Dr. Gayali Mudalige"
+                    class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-soft group-hover:scale-[1.02] transition-transform duration-500"
+                />
+            </div>
+
+            <div class="flex-1 text-center lg:text-left">
+                <div
+                    class="inline-block bg-brand-light text-brand-primary font-medium px-5 py-2 rounded-full mb-4"
+                >
+                    Principal Dentist • 23+ Years Experience
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-dark mb-6">
+                    Dr. Gayali Mudalige
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h4
+                            class="text-brand-primary font-semibold mb-3 flex items-center gap-2"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg
+                            >
+                            Qualifications
+                        </h4>
+                        <ul
+                            class="space-y-2 text-gray-600 text-sm leading-relaxed"
+                        >
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-primary mt-1">•</span> Bachelor
+                                of Dental Surgery (BDS)
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-primary mt-1">•</span> Diploma
+                                in Hospital Dental Practice
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-brand-primary mt-1">•</span> Grad.
+                                Certificate in Clinical Dentistry
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-brand-primary font-semibold mb-3 flex items-center gap-2"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                ><path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                                ></path></svg
+                            >
+                            Specialties
+                        </h4>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Known for an incredibly gentle touch. Specializes in
+                            working with nervous patients, comprehensive family
+                            dentistry, and pediatric care.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div
+                class="bg-white rounded-[32px] p-8 md:p-10 shadow-sm border border-gray-50 flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group"
+            >
+                <div
+                    class="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-brand-light group-hover:border-brand-primary/20 transition-colors"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop"
+                        alt="Marlie H."
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                </div>
+                <div
+                    class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full mb-4"
+                >
+                    Practice Manager
+                </div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-4">
+                    Marlie H.
+                </h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-sm">
+                    Marlie has been with the practice for over ten years,
+                    becoming a guiding influence. Outside of dental nursing, she
+                    is a Cross-fit enthusiast and a former premiership-winning
+                    basketball player.
+                </p>
+            </div>
+
+            <div
+                class="bg-white rounded-[32px] p-8 md:p-10 shadow-sm border border-gray-50 flex flex-col items-center text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group"
+            >
+                <div
+                    class="w-32 h-32 rounded-full overflow-hidden mb-6 border-4 border-brand-light group-hover:border-brand-primary/20 transition-colors"
+                >
+                    <img
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
+                        alt="Amy S."
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                </div>
+                <div
+                    class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full mb-4"
+                >
+                    Dental Assistant
+                </div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-4">Amy S.</h3>
+                <p class="text-gray-500 text-sm leading-relaxed max-w-sm">
+                    A cheerful recent addition to the team, showing a keen
+                    interest in all her dental training. She is also a trainer
+                    with the Vermont Junior Football Club and an avid netball
+                    player.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

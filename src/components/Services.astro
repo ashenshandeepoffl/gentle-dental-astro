@@ -1,0 +1,132 @@
+---
+// src/components/Services.astro
+const services = [
+    {
+        id: "01",
+        title: "Emergency Dental Care",
+        desc: "Fast, compassionate treatment for sudden pain, accidents, and dental injuries. We prioritize getting you out of pain immediately.",
+    },
+    {
+        id: "02",
+        title: "Check-Up & Clean",
+        desc: "Comprehensive regular check-ups, professional cleanings, gum treatments, and custom mouth guards to maintain long-term oral health.",
+    },
+    {
+        id: "03",
+        title: "Cosmetic Dentistry",
+        desc: "Enhance your smile with professional teeth whitening, custom veneers, and natural-looking crowns tailored to your face.",
+    },
+    {
+        id: "04",
+        title: "Braces & Orthodontics",
+        desc: "Traditional and modern orthodontic care designed to correct misalignments, improve your bite, and straighten your smile.",
+    },
+    {
+        id: "05",
+        title: "Clear Aligners",
+        desc: "Discrete, comfortable teeth straightening solutions for adults and teens. Get the perfect smile without the metal wires.",
+    },
+    {
+        id: "06",
+        title: "Root Canals",
+        desc: "Gentle, pain-free endodontic treatment utilizing modern techniques to comfortably save damaged or infected teeth.",
+    },
+];
+---
+
+<section class="py-24 bg-gray-50/50" id="services">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16 md:mb-20">
+            <h2
+                class="text-5xl md:text-6xl font-light text-brand-dark mb-4 tracking-tight leading-tight"
+            >
+                Dental services <span class="text-brand-primary font-medium"
+                    >for<br />a brighter smile</span
+                >
+            </h2>
+            <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+                Comprehensive, pain-free treatments tailored to your unique
+                needs.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-4 md:gap-5">
+            {
+                services.map((service) => (
+                    <details class="group bg-white rounded-[24px] shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+                        <summary class="flex items-center justify-between p-6 md:p-8 list-none select-none">
+                            <div class="flex items-center gap-6 md:gap-8">
+                                <span class="text-gray-300 font-light text-3xl md:text-4xl w-10">
+                                    {service.id}
+                                </span>
+                                <span class="text-brand-dark text-xl md:text-2xl font-medium group-hover:text-brand-primary transition-colors">
+                                    {service.title}
+                                </span>
+                            </div>
+
+                            <div class="w-12 h-12 rounded-full bg-brand-dark flex items-center justify-center text-white transition-all duration-500 group-open:rotate-180 shrink-0 group-hover:bg-brand-primary shadow-md">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2.5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19 9l-7 7-7-7"
+                                    />
+                                </svg>
+                            </div>
+                        </summary>
+
+                        <div class="px-6 md:px-8 pb-8 pt-0 ml-[64px] md:ml-[96px] max-w-2xl">
+                            <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-6">
+                                {service.desc}
+                            </p>
+
+                            <a
+                                href="#booking"
+                                class="inline-flex items-center gap-3 bg-brand-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-brand-primary transition-colors shadow-sm group/btn"
+                            >
+                                Book this service
+                                <svg
+                                    class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2.5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                                    />
+                                </svg>
+                            </a>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Smooth slide-down and fade-in effect */
+    details[open] summary ~ * {
+        animation: reveal 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

@@ -1,0 +1,350 @@
+---
+// src/components/Booking.astro
+---
+
+<section class="py-24 bg-white" id="booking">
+    <div class="max-w-7xl mx-auto px-6">
+        <div
+            class="bg-brand-light/50 rounded-[40px] p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center border border-brand-light"
+        >
+            <div class="lg:w-1/2 w-full text-center lg:text-left">
+                <h2
+                    class="text-4xl md:text-5xl lg:text-6xl font-light text-brand-dark mb-6 tracking-tight leading-tight"
+                >
+                    Ready for a <span class="text-brand-primary font-medium"
+                        >brighter smile?</span
+                    >
+                </h2>
+                <p
+                    class="text-gray-600 text-lg mb-10 leading-relaxed max-w-lg mx-auto lg:mx-0"
+                >
+                    Book your appointment online and our friendly team will get
+                    back to you within 2 hours to confirm your time.
+                </p>
+
+                <div
+                    class="bg-white rounded-[24px] p-6 shadow-sm border border-brand-light inline-block text-left w-full max-w-md mx-auto lg:mx-0"
+                >
+                    <div class="flex items-center gap-4 mb-2">
+                        <div
+                            class="w-10 h-10 rounded-full bg-brand-light flex items-center justify-center text-brand-primary"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                stroke-width="2.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-brand-dark">
+                            Dental Emergency?
+                        </h4>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-3 ml-14">
+                        Don't wait. Call us directly for immediate, same-day
+                        pain relief.
+                    </p>
+                    <a
+                        href="tel:0397929775"
+                        class="ml-14 text-2xl font-bold text-brand-primary hover:text-brand-dark transition-colors inline-block"
+                    >
+                        (03) 9792 9775
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 w-full">
+                <div
+                    class="bg-white rounded-[32px] p-8 md:p-10 shadow-xl border border-gray-50 relative overflow-hidden min-h-[450px] flex flex-col justify-center"
+                >
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-brand-light rounded-full mix-blend-multiply filter blur-3xl opacity-50 pointer-events-none transform translate-x-1/2 -translate-y-1/2"
+                    >
+                    </div>
+
+                    <form
+                        id="booking-form"
+                        class="flex flex-col gap-5 relative z-10 transition-opacity duration-300"
+                    >
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    for="name"
+                                    class="text-sm font-semibold text-brand-dark ml-2"
+                                    >Full name</label
+                                >
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    placeholder="John Doe"
+                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                />
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    for="phone"
+                                    class="text-sm font-semibold text-brand-dark ml-2"
+                                    >Phone number</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    required
+                                    placeholder="0400 000 000"
+                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label
+                                for="service"
+                                class="text-sm font-semibold text-brand-dark ml-2"
+                                >Service required</label
+                            >
+                            <div class="relative">
+                                <select
+                                    id="service"
+                                    name="service"
+                                    required
+                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full appearance-none cursor-pointer"
+                                >
+                                    <option value="" disabled selected
+                                        >Select a service...</option
+                                    >
+                                    <option value="Check-Up"
+                                        >Check-Up & Clean</option
+                                    >
+                                    <option value="Emergency"
+                                        >Emergency Care</option
+                                    >
+                                    <option value="Cosmetic"
+                                        >Cosmetic Dentistry</option
+                                    >
+                                    <option value="Braces"
+                                        >Braces & Aligners</option
+                                    >
+                                    <option value="Other"
+                                        >Other / Not Sure</option
+                                    >
+                                </select>
+                                <div
+                                    class="absolute inset-y-0 right-6 flex items-center pointer-events-none text-gray-400"
+                                >
+                                    <svg
+                                        class="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        ><path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path></svg
+                                    >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-2">
+                            <label
+                                for="date"
+                                class="text-sm font-semibold text-brand-dark ml-2"
+                                >Preferred date</label
+                            >
+                            <input
+                                type="date"
+                                id="date"
+                                name="date"
+                                required
+                                class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full cursor-pointer"
+                            />
+                        </div>
+
+                        <button
+                            type="submit"
+                            id="submit-btn"
+                            class="mt-2 bg-brand-dark text-white font-medium rounded-full py-4 px-6 flex items-center justify-center gap-3 hover:bg-brand-primary transition-colors shadow-md group disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            <span id="btn-text" class="text-lg"
+                                >Request Appointment</span
+                            >
+                            <svg
+                                id="btn-icon"
+                                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                stroke-width="2.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                                ></path>
+                            </svg>
+                            <svg
+                                id="btn-spinner"
+                                class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                            >
+                                <circle
+                                    class="opacity-25"
+                                    cx="12"
+                                    cy="12"
+                                    r="10"
+                                    stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path
+                                    class="opacity-75"
+                                    fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div
+                        id="success-state"
+                        class="absolute inset-0 z-20 bg-white flex flex-col items-center justify-center text-center p-8 opacity-0 pointer-events-none transition-opacity duration-500"
+                    >
+                        <div
+                            class="w-20 h-20 bg-brand-light rounded-full flex items-center justify-center text-brand-primary mb-6"
+                        >
+                            <svg
+                                class="w-10 h-10"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                stroke-width="2.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-brand-dark mb-2">
+                            Request Sent!
+                        </h3>
+                        <p class="text-gray-500 text-lg">
+                            Thank you, <span
+                                id="success-name"
+                                class="font-medium text-brand-dark"></span>. Our
+                            team will call you shortly to confirm your booking.
+                        </p>
+                        <button
+                            onclick="window.location.reload()"
+                            class="mt-8 text-brand-primary font-bold hover:text-brand-dark transition-colors"
+                        >
+                            Make another booking
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const form = document.getElementById("booking-form") as HTMLFormElement;
+    const submitBtn = document.getElementById(
+        "submit-btn",
+    ) as HTMLButtonElement;
+    const btnText = document.getElementById("btn-text");
+    const btnIcon = document.getElementById("btn-icon");
+    const btnSpinner = document.getElementById("btn-spinner");
+
+    const successState = document.getElementById("success-state");
+    const successName = document.getElementById("success-name");
+
+    if (form) {
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            // 1. Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // 2. Set UI to Loading state
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = "Processing...";
+            btnIcon?.classList.add("hidden");
+            btnSpinner?.classList.remove("hidden");
+
+            try {
+                // ==========================================
+                // SUPABASE INTEGRATION GOES HERE IN THE FUTURE
+                // ==========================================
+                /*
+          import { supabase } from '../lib/supabase';
+          
+          const { error } = await supabase
+            .from('bookings')
+            .insert([
+              { 
+                name: data.name, 
+                phone: data.phone, 
+                service: data.service, 
+                date: data.date 
+              }
+            ]);
+            
+          if (error) throw error;
+        */
+
+                // For now, we simulate a 1.5 second network request
+                await new Promise((resolve) => setTimeout(resolve, 1500));
+
+                // 3. Show Success State
+                form.classList.add("opacity-0", "pointer-events-none");
+
+                if (successName && typeof data.name === "string") {
+                    // Grab just the first name for a friendly greeting
+                    successName.textContent = data.name.split(" ")[0];
+                }
+
+                if (successState) {
+                    successState.classList.remove(
+                        "opacity-0",
+                        "pointer-events-none",
+                    );
+                }
+            } catch (error) {
+                // Handle Error State
+                console.error("Booking failed:", error);
+                alert("Something went wrong. Please try calling us instead.");
+
+                // Reset button
+                submitBtn.disabled = false;
+                if (btnText) btnText.textContent = "Request Appointment";
+                btnIcon?.classList.remove("hidden");
+                btnSpinner?.classList.add("hidden");
+            }
+        });
+    }
+</script>
+
+<style>
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.6;
+        transition: 0.2s;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+    }
+</style>

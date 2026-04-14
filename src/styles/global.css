@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+    /* Brand Colors */
+    --color-brand-primary: #22D3EE;
+    /* Vibrant cyan-blue */
+    --color-brand-light: #F0F9FF;
+    /* Ultra-light blue-tinted background */
+    --color-brand-dark: #1F2937;
+    /* Dark gray for typography readability */
+
+    /* Typography */
+    --font-sans: "Inter", sans-serif;
+
+    /* Border Radii */
+    --radius-card: 20px;
+    --radius-hero: 30px;
+
+    /* Custom Shadows */
+    --shadow-soft: 0 10px 40px -10px rgba(34, 211, 238, 0.15);
+}
+
+/* Base HTML setup */
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+
+    body {
+        @apply bg-brand-light text-brand-dark font-sans antialiased;
+    }
+
+    ::selection {
+        @apply bg-brand-primary text-white;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

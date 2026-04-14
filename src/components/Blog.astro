@@ -1,0 +1,255 @@
+---
+// src/components/Blog.astro
+
+const posts = [
+    {
+        id: "post-1",
+        title: "5 signs you need to visit a dentist sooner than you think",
+        category: "Dental tips",
+        date: "Apr 2, 2026",
+        image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop",
+        content: `
+      <p class="mb-4">We often put off dental visits until something hurts, but pain is usually the last symptom of a problem. Catching issues early can save you time, money, and discomfort.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">1. Persistent bad breath</h4>
+      <p class="mb-4">If brushing and mouthwash aren't fixing your bad breath, it could be a sign of early gum disease or a hidden cavity trapping bacteria.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">2. Sensitivity to hot or cold</h4>
+      <p class="mb-4">A sudden wince when drinking ice water or hot coffee usually means your enamel has worn down or you have an exposed root. Don't wait for it to become a constant ache.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">3. Bleeding when you brush</h4>
+      <p class="mb-4">Gums should never bleed during normal brushing. This is the hallmark sign of gingivitis, which is completely reversible if caught early by your dentist.</p>
+    `,
+    },
+    {
+        id: "post-2",
+        title: "The truth about teeth whitening: what really works?",
+        category: "Cosmetic dentistry",
+        date: "May 25, 2026",
+        image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
+        content: `
+      <p class="mb-4">The internet is full of DIY teeth whitening hacks, from charcoal toothpaste to lemon juice. But do they actually work, or are they damaging your smile?</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">The danger of abrasive DIYs</h4>
+      <p class="mb-4">Methods like baking soda and charcoal may scrub away surface stains, but they are highly abrasive. Over time, they literally scratch away your white enamel, exposing the yellow dentin underneath.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Professional Whitening</h4>
+      <p class="mb-4">The safest and most effective way to whiten teeth is through professional, peroxide-based treatments. At Gentle Dental, we offer custom-fitted trays that ensure the whitening gel stays on your teeth and away from your sensitive gums.</p>
+    `,
+    },
+    {
+        id: "post-3",
+        title: "Foods that secretly damage your teeth",
+        category: "Nutrition & oral health",
+        date: "Feb 27, 2026",
+        image: "https://images.unsplash.com/photo-1559589689-577aabd1ce4c?q=80&w=800&auto=format&fit=crop",
+        content: `
+      <p class="mb-4">Everyone knows that candy causes cavities, but there are several "healthy" foods that might be doing secret damage to your enamel.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Citrus Fruits</h4>
+      <p class="mb-4">Lemons, grapefruits, and oranges are packed with Vitamin C, but their high acid content can erode enamel over time. Always drink a glass of plain water after consuming citrus to wash away the acid.</p>
+      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Dried Fruits</h4>
+      <p class="mb-4">Raisins and dried apricots are sticky like caramel. They cling to the deep grooves of your molars, giving bacteria a long-lasting sugar source to feast on.</p>
+    `,
+    },
+];
+---
+
+<section class="py-24 bg-brand-light/30" id="blog">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2
+                class="text-5xl md:text-6xl font-light text-brand-primary/70 mb-4 tracking-tight leading-tight"
+            >
+                Dental health &<br />
+                wellness <span class="text-brand-primary font-medium">tips</span
+                >
+            </h2>
+            <p class="text-brand-primary text-base md:text-lg">
+                Expert advice to help you maintain a healthy, beautiful smile.
+            </p>
+        </div>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+        >
+            {
+                posts.map((post) => (
+                    <button
+                        class="blog-card text-left bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col overflow-hidden transform hover:-translate-y-2 focus:outline-none"
+                        data-title={post.title}
+                        data-category={post.category}
+                        data-date={post.date}
+                        data-image={post.image}
+                    >
+                        <div class="hidden post-content">{post.content}</div>
+
+                        <div class="h-[240px] md:h-[280px] w-full overflow-hidden shrink-0">
+                            <img
+                                src={post.image}
+                                alt={post.title}
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                            />
+                        </div>
+
+                        <div class="p-6 md:p-8 flex flex-col flex-1">
+                            <div class="flex flex-wrap gap-3 mb-5">
+                                <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
+                                    {post.category}
+                                </span>
+                                <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
+                                    {post.date}
+                                </span>
+                            </div>
+                            <h3 class="text-xl md:text-2xl text-brand-primary font-medium leading-snug group-hover:text-cyan-400 transition-colors">
+                                {post.title}
+                            </h3>
+                        </div>
+                    </button>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<div
+    id="blog-modal"
+    class="fixed inset-0 z-[100] bg-brand-dark/60 backdrop-blur-sm hidden items-center justify-center opacity-0 transition-opacity duration-300 p-4 sm:p-6 md:p-12"
+>
+    <div
+        id="blog-modal-content"
+        class="bg-white rounded-[32px] shadow-2xl w-full max-w-4xl max-h-full overflow-hidden transform translate-y-8 transition-transform duration-300 flex flex-col relative"
+    >
+        <button
+            id="close-blog-btn"
+            class="absolute top-4 right-4 sm:top-6 sm:right-6 w-12 h-12 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-brand-dark hover:text-brand-primary hover:bg-brand-light transition-colors shadow-sm z-20"
+        >
+            <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"></path></svg
+            >
+        </button>
+
+        <div class="overflow-y-auto w-full h-full">
+            <div class="w-full h-[250px] sm:h-[350px] relative">
+                <img
+                    id="modal-image"
+                    src=""
+                    alt="Article image"
+                    class="w-full h-full object-cover"
+                />
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+                >
+                </div>
+                <div
+                    class="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 flex gap-3"
+                >
+                    <span
+                        id="modal-category"
+                        class="bg-brand-primary text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wide"
+                    ></span>
+                    <span
+                        id="modal-date"
+                        class="bg-white/90 text-brand-dark text-xs font-bold px-4 py-1.5 rounded-full"
+                    ></span>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-10 md:p-16 max-w-3xl mx-auto">
+                <h2
+                    id="modal-title"
+                    class="text-3xl md:text-5xl font-bold text-brand-dark mb-10 leading-tight"
+                >
+                </h2>
+
+                <div
+                    id="modal-body"
+                    class="prose prose-lg prose-cyan max-w-none text-gray-600 leading-relaxed"
+                >
+                </div>
+
+                <div class="mt-16 pt-8 border-t border-gray-100 text-center">
+                    <p class="text-brand-dark font-medium mb-4">
+                        Have questions about your dental health?
+                    </p>
+                    <a
+                        href="#booking"
+                        onclick="document.getElementById('close-blog-btn').click()"
+                        class="inline-block bg-brand-primary text-white px-8 py-3 rounded-full font-medium hover:bg-cyan-400 transition-colors shadow-soft"
+                    >
+                        Book an appointment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById("blog-modal");
+    const modalContent = document.getElementById("blog-modal-content");
+    const closeBtn = document.getElementById("close-blog-btn");
+    const blogCards = document.querySelectorAll(".blog-card");
+
+    // Modal Elements to populate
+    const mTitle = document.getElementById("modal-title");
+    const mCategory = document.getElementById("modal-category");
+    const mDate = document.getElementById("modal-date");
+    const mImage = document.getElementById("modal-image");
+    const mBody = document.getElementById("modal-body");
+
+    function openBlog(event) {
+        const card = event.currentTarget;
+
+        // Populate data
+        mTitle.textContent = card.dataset.title;
+        mCategory.textContent = card.dataset.category;
+        mDate.textContent = card.dataset.date;
+        mImage.src = card.dataset.image;
+        mBody.innerHTML = card.querySelector(".post-content").innerHTML;
+
+        // Show modal
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+
+        // Disable background scrolling
+        document.body.style.overflow = "hidden";
+
+        // Animate in
+        setTimeout(() => {
+            modal.classList.remove("opacity-0");
+            modalContent.classList.remove("translate-y-8");
+        }, 10);
+    }
+
+    function closeBlog() {
+        // Animate out
+        modal.classList.add("opacity-0");
+        modalContent.classList.add("translate-y-8");
+
+        // Re-enable background scrolling
+        document.body.style.overflow = "";
+
+        setTimeout(() => {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }, 300);
+    }
+
+    // Event Listeners
+    blogCards.forEach((card) => card.addEventListener("click", openBlog));
+    closeBtn.addEventListener("click", closeBlog);
+
+    // Close on backdrop click
+    modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeBlog();
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("hidden"))
+            closeBlog();
+    });
+</script>

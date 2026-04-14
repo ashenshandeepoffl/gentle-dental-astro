@@ -1,0 +1,355 @@
+---
+// src/components/Navbar.astro
+---
+
+<header class="fixed top-4 w-full z-50 px-4 sm:px-6">
+    <nav
+        class="max-w-7xl mx-auto bg-white rounded-full px-6 py-3 flex items-center justify-between shadow-soft"
+    >
+        <a href="/" class="flex items-center gap-2">
+            <img
+                src="/logo.png"
+                alt="Gentle Dental Logo"
+                class="h-8 w-auto object-contain"
+            />
+            <span class="text-xl font-bold text-brand-primary tracking-tight"
+                >Gentle Dental</span
+            >
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+            <button
+                class="location-btn flex items-center gap-2 text-gray-500 hover:text-brand-primary transition-colors cursor-pointer"
+            >
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Burwood East, VIC
+            </button>
+
+            <div class="relative">
+                <button
+                    id="desktop-menu-btn"
+                    class="px-4 py-2 hover:bg-brand-light rounded-full transition-colors text-brand-dark flex items-center gap-2"
+                >
+                    <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    Menu
+                </button>
+
+                <div
+                    id="desktop-dropdown"
+                    class="dropdown-menu absolute top-full right-0 mt-2 w-48 bg-white rounded-card shadow-soft p-2 hidden flex-col gap-1 border border-brand-light opacity-0 transition-all duration-200 origin-top-right z-50"
+                >
+                    <a
+                        href="/"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Home</a
+                    >
+                    <a
+                        href="about"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >About us</a
+                    >
+                    <a
+                        href="contact"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Contact us</a
+                    >
+                    <a
+                        href="blog"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Blog</a
+                    >
+                    <a
+                        href="booking"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-primary font-medium transition-colors"
+                        >Booking</a
+                    >
+                </div>
+            </div>
+
+            <a
+                href="#booking"
+                class="bg-brand-primary text-white px-6 py-2.5 rounded-full hover:bg-cyan-400 transition-colors shadow-soft"
+            >
+                Book appointment
+            </a>
+        </div>
+
+        <div class="md:hidden flex items-center gap-2">
+            <button
+                class="location-btn p-2 text-brand-primary hover:bg-brand-light rounded-full transition-colors"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+            </button>
+
+            <div class="relative">
+                <button
+                    id="mobile-menu-btn"
+                    class="p-2 text-brand-dark hover:bg-brand-light rounded-full transition-colors"
+                >
+                    <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <div
+                    id="mobile-dropdown"
+                    class="dropdown-menu absolute top-full right-0 mt-2 w-48 bg-white rounded-card shadow-soft p-2 hidden flex-col gap-1 border border-brand-light opacity-0 transition-all duration-200 origin-top-right z-50"
+                >
+                    <a
+                        href="/"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Home</a
+                    >
+                    <a
+                        href="#about"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >About us</a
+                    >
+                    <a
+                        href="#contact"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Contact us</a
+                    >
+                    <a
+                        href="#blog"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-dark hover:text-brand-primary text-sm font-medium transition-colors"
+                        >Blog</a
+                    >
+                    <a
+                        href="#booking"
+                        class="px-4 py-2.5 hover:bg-brand-light rounded-full text-brand-primary font-medium transition-colors"
+                        >Booking</a
+                    >
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div
+    id="map-modal"
+    class="fixed inset-0 z-[100] bg-brand-dark/40 backdrop-blur-sm hidden items-center justify-center opacity-0 transition-opacity duration-300 px-4"
+>
+    <div
+        id="map-modal-content"
+        class="bg-white rounded-card shadow-xl w-full max-w-lg overflow-hidden transform scale-95 transition-transform duration-300"
+    >
+        <div
+            class="flex justify-between items-center p-6 border-b border-gray-100"
+        >
+            <div>
+                <h3 class="text-xl font-bold text-brand-dark">Our Location</h3>
+                <p class="text-sm font-medium text-brand-primary">
+                    Gentle Dental
+                </p>
+            </div>
+            <button
+                id="close-modal-btn"
+                class="text-gray-400 hover:text-brand-primary transition-colors bg-gray-50 hover:bg-brand-light p-2 rounded-full"
+            >
+                <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="bg-gray-50 p-2">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.369809989844!2d145.1519406!3d-37.8505508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad63f71aa3e6489%3A0x7085d1e48bdc2cdf!2s332%20Blackburn%20Rd%2C%20Burwood%20East%20VIC%203151%2C%20Australia!5e0!3m2!1sen!2sus!4v1714152000000!5m2!1sen!2sus"
+                width="100%"
+                height="280"
+                style="border:0; border-radius: 12px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+        </div>
+
+        <div class="p-6 text-center bg-white">
+            <p class="text-brand-dark font-medium mb-1">332 Blackburn Road</p>
+            <p class="text-gray-500 text-sm mb-6">Burwood East, VIC 3151</p>
+
+            <a
+                href="https://www.google.com.au/maps/place/332+Blackburn+Rd,+Burwood+East+VIC+3151/data=!4m2!3m1!1s0x6ad63f71aa3e6489:0x7085d1e48bdc2cdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-brand-primary text-white font-medium py-3 px-6 rounded-full hover:bg-cyan-400 transition-colors shadow-soft flex items-center justify-center gap-2 w-full group"
+            >
+                Get Directions
+                <svg
+                    class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- Dropdown Logic ---
+    function setupDropdown(btnId, menuId) {
+        const btn = document.getElementById(btnId);
+        const menu = document.getElementById(menuId);
+
+        if (!btn || !menu) return;
+
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = !menu.classList.contains("hidden");
+
+            // Close all open menus first
+            document.querySelectorAll(".dropdown-menu").forEach((m) => {
+                if (m !== menu) {
+                    m.classList.remove("opacity-100");
+                    m.classList.add("opacity-0");
+                    setTimeout(() => {
+                        m.classList.remove("flex");
+                        m.classList.add("hidden");
+                    }, 200);
+                }
+            });
+
+            if (!isOpen) {
+                menu.classList.remove("hidden");
+                menu.classList.add("flex");
+                setTimeout(() => {
+                    menu.classList.remove("opacity-0");
+                    menu.classList.add("opacity-100");
+                }, 10);
+            } else {
+                menu.classList.remove("opacity-100");
+                menu.classList.add("opacity-0");
+                setTimeout(() => {
+                    menu.classList.remove("flex");
+                    menu.classList.add("hidden");
+                }, 200);
+            }
+        });
+    }
+
+    setupDropdown("desktop-menu-btn", "desktop-dropdown");
+    setupDropdown("mobile-menu-btn", "mobile-dropdown");
+
+    // Close menu on outside click
+    document.addEventListener("click", (event) => {
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+            if (
+                !menu.classList.contains("hidden") &&
+                !event.target.closest(".relative")
+            ) {
+                menu.classList.remove("opacity-100");
+                menu.classList.add("opacity-0");
+                setTimeout(() => {
+                    menu.classList.remove("flex");
+                    menu.classList.add("hidden");
+                }, 200);
+            }
+        });
+    });
+
+    // --- Modal Logic ---
+    const modal = document.getElementById("map-modal");
+    const modalContent = document.getElementById("map-modal-content");
+    const locationBtns = document.querySelectorAll(".location-btn");
+    const closeBtn = document.getElementById("close-modal-btn");
+
+    function openModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+        setTimeout(() => {
+            modal.classList.remove("opacity-0");
+            modal.classList.add("opacity-100");
+            modalContent.classList.remove("scale-95");
+            modalContent.classList.add("scale-100");
+        }, 10);
+    }
+
+    function closeModal() {
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        modalContent.classList.remove("scale-100");
+        modalContent.classList.add("scale-95");
+        setTimeout(() => {
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+        }, 300);
+    }
+
+    locationBtns.forEach((btn) => btn.addEventListener("click", openModal));
+    closeBtn?.addEventListener("click", closeModal);
+    modal?.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+    });
+</script>

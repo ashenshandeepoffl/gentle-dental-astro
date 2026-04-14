@@ -1,0 +1,40 @@
+---
+// src/pages/blog.astro
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import BlogComponent from "../components/Blog.astro";
+import Booking from "../components/Booking.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Dental Health Blog | Gentle Dental">
+    <Navbar />
+
+    <main class="pt-32">
+        <section class="max-w-7xl mx-auto px-6 mb-8 text-center">
+            <div
+                class="inline-block bg-brand-light text-brand-primary font-medium px-5 py-2 rounded-full mb-6"
+            >
+                The Resource Hub
+            </div>
+            <h1
+                class="text-5xl md:text-7xl font-light text-brand-dark mb-6 tracking-tight leading-tight"
+            >
+                Insights for a <br /><span
+                    class="text-brand-primary font-medium"
+                    >healthier smile.</span
+                >
+            </h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                Stay up to date with the latest dental tips, clinic news, and
+                expert advice from Dr. Gayali and the Gentle Dental team.
+            </p>
+        </section>
+
+        <BlogComponent />
+
+        <Booking />
+    </main>
+
+    <Footer />
+</Layout>

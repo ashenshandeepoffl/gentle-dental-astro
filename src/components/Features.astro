@@ -1,0 +1,90 @@
+---
+// src/components/Features.astro
+const features = [
+    {
+        title: "Gentle, pain-free approach",
+        desc: "We use modern techniques to ensure your comfort at every step.",
+    },
+    {
+        title: "Honest, transparent pricing",
+        desc: "No hidden fees. We provide clear treatment plans and flexible payments.",
+    },
+    {
+        title: "Excellent with children",
+        desc: "Creating a fun, non-judgmental environment for long-lasting oral health.",
+    },
+    {
+        title: "Personalized, 1-on-1 care",
+        desc: "We take the time to listen to your concerns and explain every option.",
+    },
+];
+---
+
+<section class="max-w-7xl mx-auto px-6 relative z-20 mt-16 md:mt-24 mb-16">
+    <div
+        class="bg-white rounded-[30px] md:rounded-[40px] p-8 md:p-12 lg:p-16 shadow-soft border border-gray-50 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center"
+    >
+        <div class="flex-1">
+            <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-light text-brand-dark mb-6 tracking-tight"
+            >
+                Dentistry without <span class="text-brand-primary font-medium"
+                    >the anxiety.</span
+                >
+            </h2>
+            <p class="text-gray-600 text-lg mb-10 leading-relaxed max-w-xl">
+                We understand that visiting the dentist can be daunting. That's
+                why we've created a soothing, non-judgmental environment focused
+                entirely on your comfort and well-being.
+            </p>
+
+            <div class="grid sm:grid-cols-2 gap-x-8 gap-y-8">
+                {
+                    features.map((feature) => (
+                        <div class="flex gap-4 items-start">
+                            <div class="bg-brand-light text-brand-primary p-2.5 rounded-full shrink-0">
+                                <svg
+                                    class="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2.5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M4.5 12.75l6 6 9-13.5"
+                                    />
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-brand-dark font-bold mb-1">
+                                    {feature.title}
+                                </h4>
+                                <p class="text-sm text-gray-500 leading-relaxed">
+                                    {feature.desc}
+                                </p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+
+        <div class="w-full lg:w-[45%] shrink-0 relative">
+            <div
+                class="absolute inset-0 bg-brand-light rounded-[24px] transform -translate-x-4 translate-y-4 -z-10"
+            >
+            </div>
+            <div
+                class="rounded-[24px] overflow-hidden shadow-lg border-4 border-white"
+            >
+                <img
+                    src="https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Friendly dental consultation"
+                    class="w-full h-auto object-cover aspect-[4/3]"
+                />
+            </div>
+        </div>
+    </div>
+</section>
