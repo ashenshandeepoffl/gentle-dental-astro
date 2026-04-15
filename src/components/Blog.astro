@@ -1,52 +1,16 @@
 ---
 // src/components/Blog.astro
 
-const posts = [
-    {
-        id: "post-1",
-        title: "5 signs you need to visit a dentist sooner than you think",
-        category: "Dental tips",
-        date: "Apr 2, 2026",
-        image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop",
-        content: `
-      <p class="mb-4">We often put off dental visits until something hurts, but pain is usually the last symptom of a problem. Catching issues early can save you time, money, and discomfort.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">1. Persistent bad breath</h4>
-      <p class="mb-4">If brushing and mouthwash aren't fixing your bad breath, it could be a sign of early gum disease or a hidden cavity trapping bacteria.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">2. Sensitivity to hot or cold</h4>
-      <p class="mb-4">A sudden wince when drinking ice water or hot coffee usually means your enamel has worn down or you have an exposed root. Don't wait for it to become a constant ache.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">3. Bleeding when you brush</h4>
-      <p class="mb-4">Gums should never bleed during normal brushing. This is the hallmark sign of gingivitis, which is completely reversible if caught early by your dentist.</p>
-    `,
-    },
-    {
-        id: "post-2",
-        title: "The truth about teeth whitening: what really works?",
-        category: "Cosmetic dentistry",
-        date: "May 25, 2026",
-        image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop",
-        content: `
-      <p class="mb-4">The internet is full of DIY teeth whitening hacks, from charcoal toothpaste to lemon juice. But do they actually work, or are they damaging your smile?</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">The danger of abrasive DIYs</h4>
-      <p class="mb-4">Methods like baking soda and charcoal may scrub away surface stains, but they are highly abrasive. Over time, they literally scratch away your white enamel, exposing the yellow dentin underneath.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Professional Whitening</h4>
-      <p class="mb-4">The safest and most effective way to whiten teeth is through professional, peroxide-based treatments. At Gentle Dental, we offer custom-fitted trays that ensure the whitening gel stays on your teeth and away from your sensitive gums.</p>
-    `,
-    },
-    {
-        id: "post-3",
-        title: "Foods that secretly damage your teeth",
-        category: "Nutrition & oral health",
-        date: "Feb 27, 2026",
-        image: "https://images.unsplash.com/photo-1559589689-577aabd1ce4c?q=80&w=800&auto=format&fit=crop",
-        content: `
-      <p class="mb-4">Everyone knows that candy causes cavities, but there are several "healthy" foods that might be doing secret damage to your enamel.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Citrus Fruits</h4>
-      <p class="mb-4">Lemons, grapefruits, and oranges are packed with Vitamin C, but their high acid content can erode enamel over time. Always drink a glass of plain water after consuming citrus to wash away the acid.</p>
-      <h4 class="text-xl font-bold text-brand-dark mt-8 mb-4">Dried Fruits</h4>
-      <p class="mb-4">Raisins and dried apricots are sticky like caramel. They cling to the deep grooves of your molars, giving bacteria a long-lasting sugar source to feast on.</p>
-    `,
-    },
-];
+// 1. Use Vite's native glob instead of Astro.glob
+const matches = import.meta.glob("../posts/*.mdx", { eager: true });
+const posts = Object.values(matches);
+
+// 2. Sort posts by date (newest first)
+posts.sort(
+    (a: any, b: any) =>
+        new Date(b.frontmatter.date).valueOf() -
+        new Date(a.frontmatter.date).valueOf(),
+);
 ---
 
 <section class="py-24 bg-brand-light/30" id="blog">
@@ -68,39 +32,48 @@ const posts = [
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
             {
-                posts.map((post) => (
-                    <button
-                        class="blog-card text-left bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col overflow-hidden transform hover:-translate-y-2 focus:outline-none"
-                        data-title={post.title}
-                        data-category={post.category}
-                        data-date={post.date}
-                        data-image={post.image}
-                    >
-                        <div class="hidden post-content">{post.content}</div>
+                posts.map((post: any) => {
+                    const { title, category, date, image } = post.frontmatter;
 
-                        <div class="h-[240px] md:h-[280px] w-full overflow-hidden shrink-0">
-                            <img
-                                src={post.image}
-                                alt={post.title}
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                            />
-                        </div>
+                    // 3. Vite exports the compiled Astro/MDX component as 'default'
+                    const Content = post.default;
 
-                        <div class="p-6 md:p-8 flex flex-col flex-1">
-                            <div class="flex flex-wrap gap-3 mb-5">
-                                <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
-                                    {post.category}
-                                </span>
-                                <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
-                                    {post.date}
-                                </span>
+                    return (
+                        <button
+                            class="blog-card text-left bg-white rounded-[24px] shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col overflow-hidden transform hover:-translate-y-2 focus:outline-none"
+                            data-title={title}
+                            data-category={category}
+                            data-date={date}
+                            data-image={image}
+                        >
+                            <div class="hidden post-content">
+                                <Content />
                             </div>
-                            <h3 class="text-xl md:text-2xl text-brand-primary font-medium leading-snug group-hover:text-cyan-400 transition-colors">
-                                {post.title}
-                            </h3>
-                        </div>
-                    </button>
-                ))
+
+                            <div class="h-[240px] md:h-[280px] w-full overflow-hidden shrink-0">
+                                <img
+                                    src={image}
+                                    alt={title}
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                                />
+                            </div>
+
+                            <div class="p-6 md:p-8 flex flex-col flex-1">
+                                <div class="flex flex-wrap gap-3 mb-5">
+                                    <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
+                                        {category}
+                                    </span>
+                                    <span class="bg-brand-light text-brand-primary text-xs font-medium px-4 py-1.5 rounded-full">
+                                        {date}
+                                    </span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl text-brand-primary font-medium leading-snug group-hover:text-cyan-400 transition-colors">
+                                    {title}
+                                </h3>
+                            </div>
+                        </button>
+                    );
+                })
             }
         </div>
     </div>
@@ -193,7 +166,6 @@ const posts = [
     const closeBtn = document.getElementById("close-blog-btn");
     const blogCards = document.querySelectorAll(".blog-card");
 
-    // Modal Elements to populate
     const mTitle = document.getElementById("modal-title");
     const mCategory = document.getElementById("modal-category");
     const mDate = document.getElementById("modal-date");
@@ -203,21 +175,16 @@ const posts = [
     function openBlog(event) {
         const card = event.currentTarget;
 
-        // Populate data
         mTitle.textContent = card.dataset.title;
         mCategory.textContent = card.dataset.category;
         mDate.textContent = card.dataset.date;
         mImage.src = card.dataset.image;
         mBody.innerHTML = card.querySelector(".post-content").innerHTML;
 
-        // Show modal
         modal.classList.remove("hidden");
         modal.classList.add("flex");
-
-        // Disable background scrolling
         document.body.style.overflow = "hidden";
 
-        // Animate in
         setTimeout(() => {
             modal.classList.remove("opacity-0");
             modalContent.classList.remove("translate-y-8");
@@ -225,11 +192,8 @@ const posts = [
     }
 
     function closeBlog() {
-        // Animate out
         modal.classList.add("opacity-0");
         modalContent.classList.add("translate-y-8");
-
-        // Re-enable background scrolling
         document.body.style.overflow = "";
 
         setTimeout(() => {
@@ -238,16 +202,13 @@ const posts = [
         }, 300);
     }
 
-    // Event Listeners
     blogCards.forEach((card) => card.addEventListener("click", openBlog));
     closeBtn.addEventListener("click", closeBlog);
 
-    // Close on backdrop click
     modal.addEventListener("click", (e) => {
         if (e.target === modal) closeBlog();
     });
 
-    // Close on Escape key
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && !modal.classList.contains("hidden"))
             closeBlog();
