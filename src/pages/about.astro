@@ -31,40 +31,24 @@ const values = [
 
     <main>
         <section
-            class="relative bg-gradient-to-br from-brand-primary to-[#0ea5e9] min-h-[70vh] flex items-center py-20 overflow-hidden rounded-[30px] md:rounded-[50px] mx-4 sm:mx-6 xl:mx-10 mt-24 shadow-soft"
+            class="relative bg-gradient-to-br from-brand-primary to-[#0ea5e9] min-h-[85vh] flex items-center py-20 overflow-hidden rounded-[30px] md:rounded-[50px] mx-4 sm:mx-6 xl:mx-10 mt-24 shadow-soft"
         >
             <div
-                class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] pointer-events-none z-0 hidden md:block"
-            >
-                <div
-                    class="absolute inset-0 border-[1.5px] border-white/20 rounded-full"
-                >
-                </div>
-                <div
-                    class="absolute top-[15%] left-[15%] right-[15%] bottom-[15%] border-[1.5px] border-white/20 rounded-full"
-                >
-                </div>
-                <div
-                    class="absolute top-[30%] left-[30%] right-[30%] bottom-[30%] border-[1.5px] border-white/20 rounded-full"
-                >
-                </div>
-            </div>
-
-            <div
-                class="w-full max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center relative z-10"
+                class="w-full px-6 md:px-12 lg:px-20 grid lg:grid-cols-2 gap-12 items-center relative z-10"
             >
                 <div class="text-white mt-8 lg:mt-0">
-                    <div
-                        class="inline-block bg-white/20 backdrop-blur-sm text-white font-medium px-5 py-2 rounded-full mb-6"
-                    >
-                        Our Story
+                    
+                    <!-- NEW CREATIVE EYEBROW DESIGN -->
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="w-10 h-[2px] bg-cyan-300/80 rounded-full"></span>
+                        <span class="text-cyan-100 font-bold uppercase tracking-[0.25em] text-sm">Our Story</span>
                     </div>
+
                     <h1
-                        class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight"
+                        class="text-5xl md:text-7xl lg:text-[80px] font-bold leading-[1.1] mb-6 tracking-tight"
                     >
-                        Changing the way you <span class="text-cyan-200"
-                            >feel about the dentist.</span
-                        >
+                        Changing the way you <br class="hidden xl:block" />
+                        <span class="text-cyan-200">feel about the dentist.</span>
                     </h1>
                     <p
                         class="text-lg md:text-xl text-white/90 mb-10 max-w-lg font-medium"
@@ -75,20 +59,43 @@ const values = [
                     </p>
                 </div>
 
-                <div class="relative flex justify-center lg:justify-end">
-                    <div
-                        class="w-full max-w-md aspect-square md:aspect-video lg:aspect-square rounded-[30px] overflow-hidden shadow-2xl border-4 border-white/30 relative z-10 bg-white"
-                    >
-                        <img
-                            src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop"
-                            alt="Gentle Dental Clinic"
-                            class="w-full h-full object-cover"
-                        />
+                <div
+                    class="relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0"
+                >
+                    <div class="relative flex items-center justify-center">
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] md:w-[650px] md:h-[650px] lg:w-[850px] lg:h-[850px] pointer-events-none z-0"
+                        >
+                            <div
+                                class="absolute inset-0 border-[1.5px] border-white/20 rounded-full"
+                            >
+                            </div>
+                            <div
+                                class="absolute top-[12%] left-[12%] right-[12%] bottom-[12%] border-[1.5px] border-white/20 rounded-full"
+                            >
+                            </div>
+                            <div
+                                class="absolute top-[24%] left-[24%] right-[24%] bottom-[24%] border-[1.5px] border-white/20 rounded-full"
+                            >
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-[320px] h-[320px] md:w-[460px] md:h-[460px] lg:w-[520px] lg:h-[520px] rounded-full overflow-hidden relative z-10 shadow-2xl bg-white" oncontextmenu="return false;"
+                        >
+                            <img
+                                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=800&auto=format&fit=crop"
+                                alt="Gentle Dental Clinic"
+                                draggable="false"
+                                class="w-full h-full object-cover pointer-events-none select-none"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Mission & Philosophy -->
         <section
             class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-16 items-center"
         >
@@ -120,26 +127,29 @@ const values = [
 
             <div class="grid grid-cols-2 gap-4 h-full">
                 <div
-                    class="rounded-[24px] overflow-hidden shadow-sm h-48 md:h-64 mt-8"
+                    class="rounded-[24px] overflow-hidden shadow-sm h-48 md:h-64 mt-8" oncontextmenu="return false;"
                 >
                     <img
                         src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop"
                         alt="Dental tools"
-                        class="w-full h-full object-cover"
+                        draggable="false"
+                        class="w-full h-full object-cover pointer-events-none select-none"
                     />
                 </div>
                 <div
-                    class="rounded-[24px] overflow-hidden shadow-sm h-48 md:h-64"
+                    class="rounded-[24px] overflow-hidden shadow-sm h-48 md:h-64" oncontextmenu="return false;"
                 >
                     <img
                         src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?q=80&w=600&auto=format&fit=crop"
                         alt="Happy patient"
-                        class="w-full h-full object-cover"
+                        draggable="false"
+                        class="w-full h-full object-cover pointer-events-none select-none"
                     />
                 </div>
             </div>
         </section>
 
+        <!-- Core Values -->
         <section class="bg-gray-50/50 py-24">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="text-center mb-16">

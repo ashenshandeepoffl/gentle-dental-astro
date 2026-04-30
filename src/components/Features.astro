@@ -76,13 +76,16 @@ const features = [
                 class="absolute inset-0 bg-brand-light rounded-[24px] transform -translate-x-4 translate-y-4 -z-10"
             >
             </div>
+            <!-- Added anti-right-click to the wrapper -->
             <div
-                class="rounded-[24px] overflow-hidden shadow-lg border-4 border-white"
+                class="rounded-[24px] overflow-hidden shadow-lg border-4 border-white" oncontextmenu="return false;"
             >
+                <!-- Updated src and added anti-drag protections -->
                 <img
-                    src="https://plus.unsplash.com/premium_photo-1681966962522-546f370bc98e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="/Features-image-1.jpg"
                     alt="Friendly dental consultation"
-                    class="w-full h-auto object-cover aspect-[4/3]"
+                    draggable="false"
+                    class="w-full h-auto object-cover aspect-[4/3] pointer-events-none select-none"
                 />
             </div>
         </div>

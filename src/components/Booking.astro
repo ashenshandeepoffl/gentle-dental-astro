@@ -53,9 +53,9 @@
                     </p>
                     <a
                         href="tel:0397929775"
-                        class="ml-14 text-2xl font-bold text-brand-primary hover:text-brand-dark transition-colors inline-block"
+                        class="ml-14 text-lg font-bold text-brand-primary hover:text-brand-dark transition-colors inline-block"
                     >
-                        (03) 9792 9775
+                        (03) 9792 9775 / (03) 9803 8588
                     </a>
                 </div>
             </div>
@@ -71,9 +71,9 @@
 
                     <form
                         id="booking-form"
-                        class="flex flex-col gap-5 relative z-10 transition-opacity duration-300"
+                        class="flex flex-col gap-4 relative z-10 transition-opacity duration-300"
                     >
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="flex flex-col gap-2">
                                 <label
                                     for="name"
@@ -86,10 +86,28 @@
                                     name="name"
                                     required
                                     placeholder="John Doe"
-                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                    class="bg-gray-50 rounded-full px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
                                 />
                             </div>
 
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    for="email"
+                                    class="text-sm font-semibold text-brand-dark ml-2"
+                                    >Email address</label
+                                >
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    placeholder="john@example.com"
+                                    class="bg-gray-50 rounded-full px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div class="flex flex-col gap-2">
                                 <label
                                     for="phone"
@@ -102,7 +120,22 @@
                                     name="phone"
                                     required
                                     placeholder="0400 000 000"
-                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                    class="bg-gray-50 rounded-full px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full"
+                                />
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <label
+                                    for="date"
+                                    class="text-sm font-semibold text-brand-dark ml-2"
+                                    >Preferred date</label
+                                >
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    required
+                                    class="bg-gray-50 rounded-full px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full cursor-pointer"
                                 />
                             </div>
                         </div>
@@ -118,7 +151,7 @@
                                     id="service"
                                     name="service"
                                     required
-                                    class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full appearance-none cursor-pointer"
+                                    class="bg-gray-50 rounded-full px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full appearance-none cursor-pointer"
                                 >
                                     <option value="" disabled selected
                                         >Select a service...</option
@@ -159,17 +192,17 @@
 
                         <div class="flex flex-col gap-2">
                             <label
-                                for="date"
+                                for="description"
                                 class="text-sm font-semibold text-brand-dark ml-2"
-                                >Preferred date</label
+                                >How can we help?</label
                             >
-                            <input
-                                type="date"
-                                id="date"
-                                name="date"
-                                required
-                                class="bg-gray-50 rounded-full px-6 py-4 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark w-full cursor-pointer"
-                            />
+                            <textarea
+                                id="description"
+                                name="description"
+                                rows="3"
+                                placeholder="Briefly describe your dental concern..."
+                                class="bg-gray-50 rounded-[20px] px-6 py-3.5 focus:outline-none focus:bg-white focus:ring-2 focus:ring-brand-primary border border-transparent focus:border-brand-primary transition-all text-brand-dark placeholder:text-gray-400 w-full resize-none"
+                            ></textarea>
                         </div>
 
                         <button
@@ -297,9 +330,11 @@
             .insert([
               { 
                 name: data.name, 
+                email: data.email,
                 phone: data.phone, 
+                date: data.date,
                 service: data.service, 
-                date: data.date 
+                description: data.description
               }
             ]);
             
